@@ -1,0 +1,44 @@
+{
+  "name": "@blake.regalia/meta",
+  "version": "0.15.1",
+  "repository": "github:blake-regalia/meta",
+  "license": "ISC",
+  "author": {
+    "name": "Blake Regalia",
+    "email": "blake.regalia@gmail.com"
+  },
+  "type": "module",
+  "main": "dist/cjs/main.js",
+  "module": "dist/mjs/main.js",
+  "types": "dist/mjs/main.d.ts",
+  "exports": {
+    "require": "./dist/cjs/main.js",
+    "import": "./dist/mjs/main.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "build:mjs": "tsc -p tsconfig.mjs.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build": "pnpm run build:mjs && pnpm run build:cjs",
+    "bundle": "rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript"
+  },
+  "devDependencies": {
+    "@blake.regalia/eslint-config-elite": "^0.4.4",
+    "@blake.regalia/tsconfig": "^0.2.0",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.11.30",
+    "@types/web": "^0.0.142",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "rollup": "^4.13.0",
+    "ts-node": "^10.9.2",
+    "ts-toolbelt": "^9.6.0",
+    "typescript": "^5.4.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
